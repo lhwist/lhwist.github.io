@@ -1,0 +1,163 @@
+
+body{
+  width: 100%;
+  height: auto;
+  background-position: left top, left bottom;
+
+  background-size: 700px 700px, 750px 810px;
+  background-repeat: no-repeat, repeat;
+  background-blend-mode: color-dodge;
+}
+
+p{
+  color: white;
+  line-height:0em;
+}
+
+#bottom{
+  display: flex;
+  max-width: 800px;
+  height: 300px
+  background-color: green;
+}
+
+#search{
+  font-size: 150%;
+  background-color: orange;
+  border-radius: 1em;
+  opacity: 0.4;
+  border: none;
+}
+
+#search:hover{
+  background-color: yellow;
+}
+
+.dailyforcast{
+  text-align: left;
+
+}
+
+.daily{
+  text-align: left;
+  display: inline-block;
+}
+
+#credit{
+  color: white;
+  font-size: 75%
+}
+
+img{
+  clear: both;
+  height:60px;
+  width: 80px;
+  -webkit-filter: invert(100%) brightness(150%);
+  filter: invert(100%) brightness(150%);
+}
+
+#yahoo{
+    width:134px;
+    height:29px;
+}
+
+#highandlow, #windspeed{
+  font-size: 130%;
+
+}
+
+.now{
+  text-align: left;
+}
+
+.currentforcast{
+  display: inline-block;
+}
+
+#pic_0{
+  width: 210;
+  height: 150;
+  filter:brightness(50%);
+}
+
+#city{
+  font-size: 140%;
+}
+
+#current_temp{
+  font-size: 900%;
+  margin: 0px;
+  padding: 0px;
+  color: white;
+
+}
+
+#zip{
+  width: 600px;
+  height:40px;
+  color: white;
+  background: #1A1A1A;
+  border-radius: 2em;
+  border: none;
+  font-size: 15px;
+  margin: 1em;
+  padding: 0.8em;
+  opacity:0.4;
+}
+
+#wrapper{
+  max-width: 1400px;
+  min-height: 730;
+  height: 30%;
+}
+
+#searchbar{
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: relative;
+}
+
+#weather{
+  text-align: center;
+  position: relative;
+}
+
+#current{
+  padding-right: 50px;
+  padding-left: 20px;
+  text-align: center;
+  width: 400px;
+  max-height: 600px;
+}
+
+#forcast{
+  min-width: 350px;
+  height: 500px;
+}
+
+
+#current_temp{
+  font-size: 230%;
+}
+
+#celsius{
+  font-size: 150%;
+}
+
+.tempsize{
+  font-size: 130%;
+}
+
+.showtemp{
+  font-size: 200%;
+  display: inline-block;
+}
+
+.innerWeather{
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  align-items: center;
+}

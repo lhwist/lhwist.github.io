@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Weather App</title>
+		<link rel="stylesheet" href="weather.css"></link>
+	</head>
+
+	<body >
+
+		<div id="wrapper">
+
+			<div id="searchbar">
+				<input type="text" id="zip" placeholder="   Enter a city or zip code to check the weather!" onkeydown = "if (event.keyCode == 13)
+					document.getElementById('search').click()" >
+					<button id="search" onclick='lookupWoeid()'>Check</button>
+			</div> <!--search-->
+
+			<div class="outterWeather" id="weather">
+
+				<div class="innerWeather" id="current">
+
+					<div class="now">
+						<img class="currentforcast" id="pic_0" />
+						<div class="currentforcast">
+							<P id="date"></p>
+							<p id="city"> </p>
+							<P id="condition"></p>
+						</div>
+					</div>
+
+					<div class="showtemp">
+						<P class="showtemp" id="current_temp"></p>
+						<P class="showtemp" id="celsius"></p>
+					</div>
+
+					<p id="highandlow"></p>
+					<p id="windspeed"></p>
+				</div> <!--current-->
+
+					<div class="innerWeather" id="forcast">
+
+						<div class="dailyforcast" id="dayone">
+							<img class="daily" id="pic_1" />
+							<div class="daily">
+								<P id="date_1"> </p>
+								<P class="tempsize" id="temp_1"></p>
+								<P id="condition_1"></p>
+							</div>
+						</div> <!--One-->
+
+						<br>
+						<div class="dailyforcast" id="daytwo">
+							<img class="daily" id="pic_2" />
+							<div class="daily">
+								<P id="date_2"></p>
+								<P class="tempsize" id="temp_2"></p>
+								<P id="condition_2"></p>
+							</div>
+						</div><!--two-->
+
+						<br>
+						<div class="dailyforcast" id="daythree">
+							<img class="daily" id="pic_3" />
+							<div class="daily">
+								<P id="date_3"></p>
+								<P class="tempsize" id="temp_3"></p>
+								<P id="condition_3"></p>
+							</div>
+						</div><!--three-->
+
+						<br>
+						<div class="dailyforcast" id="dayfour">
+							<img class="daily" id="pic_4" />
+							<div class="daily">
+								<P id="date_4"></p>
+								<P class="tempsize" id="temp_4"></p>
+								<P id="condition_4"></p>
+							</div>
+						</div><!--four-->
+
+						<br>
+						<div class="dailyforcast" id="dayfive">
+							<img class="daily" id="pic_5" />
+							<div class="daily">
+								<P id="date_5"></p>
+								<P class="tempsize" id="temp_5"></p>
+								<P id="condition_5"></p>
+							</div>
+						</div><!--five-->
+
+
+					</div> <!--forcast-->
+			</div> <!--weather-->
+
+			<footer id="bottom">
+				<a href="https://www.yahoo.com/?ilc=401" target="_blank"> <img id="yahoo" src="https://poweredby.yahoo.com/purple.png" /> </a>
+				<p id="credit">Pictures by Michelle Lee and Andy Lin</p>
+			</footer>
+		</div> <!--wrapper-->
+
+
+		<script src="weather.js"></script>
+
+	</body>
+</html>
