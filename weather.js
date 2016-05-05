@@ -58,7 +58,7 @@ function changeBackground(location){
 	if(location.date.indexOf("AM")> -1){
 		document.body.style.backgroundImage = "url('sunny.png'),linear-gradient(#fa4d48, #fa9748)";
 	}else {
-		document.body.style.backgroundImage = "url('sunny.png'), linear-gradient(#319ef7 0%,#1b388e 200px,#1b388e 100%)";
+		document.body.style.backgroundImage = "url('sunny.png'), linear-gradient(#29588c, #8a69d4)";
 	}
 }
 
