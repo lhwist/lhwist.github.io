@@ -58,7 +58,7 @@ function changeBackground(location){
 	if(location.date.indexOf("AM")> -1){
 		document.body.style.backgroundImage = "url('sunny.png'),linear-gradient(#fa4d48, #fa9748)";
 	}else {
-		document.body.style.backgroundImage = "url('sunny.png'), linear-gradient(#29588c, #8a69d4)";
+		document.body.style.backgroundImage = "url('sunny.png'), linear-gradient(#319ef7 0%,#1b388e 200px,#1b388e 100%)";
 	}
 }
 
@@ -82,46 +82,22 @@ function callbackFunction(data){
 	currentday.report("highandlow","High: "+temp.high+"    Low: "+temp.low);
 	currentday.report("windspeed","Wind Speed: "+data.query.results.channel.wind.speed+" mph");
 
-	var tempforcast = data.query.results.channel.item.forecast[1];
-	var forcast_1 = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
-		data.query.results.location);
-		forcast_1.report("temp_1","High: "+tempforcast.high+"°F"+"    Low: "+forcast_1.temp+"°F");
-		forcast_1.report("date_1",forcast_1.day + " " +tempforcast.date);
-		forcast_1.report("condition_1",forcast_1.condition);
-		forcast_1.getImage("pic_1");
+	getForecast(data, 1, "temp_1", "date_1", "condition_1","pic_1");
+	getForecast(data, 2, "temp_2", "date_2", "condition_2","pic_2");
+	getForecast(data, 3, "temp_3", "date_3", "condition_3","pic_3");
+	getForecast(data, 4, "temp_4", "date_4", "condition_4","pic_4");
+	getForecast(data, 5, "temp_5", "date_5", "condition_5","pic_5");
 
-	tempforcast = data.query.results.channel.item.forecast[2];
-	var forcast_2 = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
-		data.query.results.location);
-		forcast_2.report("temp_2","High: "+tempforcast.high+"°F"+"    Low: "+forcast_2.temp+"°F");
-		forcast_2.report("date_2",forcast_2.day + " " +tempforcast.date);
-		forcast_2.report("condition_2",forcast_2.condition);
-		forcast_2.getImage("pic_2");
+}
 
-	tempforcast = data.query.results.channel.item.forecast[3];
-	var forcast_3 = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
+function getForecast(data, index, temperature, date, condition, picture){
+	var tempforcast = data.query.results.channel.item.forecast[index];
+	var myforcast = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
 		data.query.results.location);
-		forcast_3.report("temp_3","High: "+tempforcast.high+"°F"+"    Low: "+forcast_3.temp+"°F");
-		forcast_3.report("date_3",forcast_3.day+ " " +tempforcast.date);
-		forcast_3.report("condition_3",forcast_3.condition);
-		forcast_3.getImage("pic_3");
-
-	tempforcast = data.query.results.channel.item.forecast[4];
-	var forcast_4 = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
-		data.query.results.location);
-		forcast_4.report("temp_4","High: "+tempforcast.high+"°F"+"    Low: "+forcast_4.temp+"°F");
-		forcast_4.report("date_4",forcast_4.day+ " " +tempforcast.date);
-		forcast_4.report("condition_4",forcast_4.condition);
-		forcast_4.getImage("pic_4");
-
-	tempforcast = data.query.results.channel.item.forecast[5];
-	var forcast_5 = new oneParticularDay(tempforcast.low, tempforcast.day, tempforcast.text,
-		data.query.results.location);
-		forcast_5.report("temp_5","High: "+tempforcast.high+"°F"+"    Low: "+forcast_5.temp+"°F");
-		forcast_5.report("date_5",forcast_5.day+ " " +tempforcast.date);
-		forcast_5.report("condition_5",forcast_5.condition);
-		forcast_5.getImage("pic_5");
-
+		myforcast.report(temperature,"High: "+tempforcast.high+"°F"+"    Low: "+myforcast.temp+"°F");
+		myforcast.report(date, myforcast.day+ " " +tempforcast.date);
+		myforcast.report(condition,myforcast.condition);
+		myforcast.getImage(picture);
 
 }
 
@@ -129,7 +105,6 @@ function ftoc(temp){
 	 return Math.round((temp-32)/1.8);
 }
 
-/* called when submit button is pushed */
 function lookupWoeid() {
 	var searchText = document.getElementById("zip").value;
 	if(searchText.length < 2){
@@ -138,9 +113,6 @@ function lookupWoeid() {
 	getNewPlace(searchText);
 }
 
-
-/* function to get new woeid and place by forcing the browser to make a
- query, in the form of asking Yahoo to download a Javascript file.  */
 function getNewPlace(place) {
 	var script = document.createElement('script');
 	script.src = "https://query.yahooapis.com/v1/public/yql?q=select woeid,name,admin1,country  from   geo.places where text='"+place+"' & format=json & callback=placeCallback";
@@ -148,9 +120,7 @@ function getNewPlace(place) {
 }
 
 
-/* called when Yahoo returns a new place result */
 function placeCallback(data) {
-    // did it find it?
 	var place = data;
   if (data.query.results == null) {
 		var woeid = "not found";
