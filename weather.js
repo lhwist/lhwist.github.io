@@ -115,7 +115,7 @@ function lookupWoeid() {
 
 function getNewPlace(place) {
 	var script = document.createElement('script');
-	script.src = "https://query.yahooapis.com/v1/public/yql?q=select * from geo.places where text='"+place+"' &format=json&Diagnostics=true&callback=placeCallback";
+	script.src = "https://query.yahooapis.com/v1/public/yql?q=select * from geo.places where text='davis' &format=json&Diagnostics=true&callback=placeCallback";
 	document.body.appendChild(script);
 }
 
